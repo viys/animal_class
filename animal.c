@@ -28,7 +28,7 @@ static void animal_get_age(void* t) {
 }
 
 ANIMAL* ANIMAL_CTOR(void) {
-    ANIMAL* this = (ANIMAL*)malloc(sizeof(ANIMAL));
+    ANIMAL* this = (ANIMAL*)CLASS_MALLOC(sizeof(ANIMAL));
     
     this->init = animal_init;
     this->api.get_name = animal_get_name;
@@ -39,5 +39,5 @@ ANIMAL* ANIMAL_CTOR(void) {
 }
 
 void ANIMAL_DTOR(ANIMAL* t) {
-    free(t);
+    CLASS_FREE(t);
 }

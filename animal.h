@@ -1,4 +1,16 @@
-#pragma once
+// #pragma once
+#ifndef __ANIMAL_H
+#define __ANIMAL_H
+
+#ifndef CLASS_MALLOC
+#define CLASS_MALLOC malloc
+#warning The compiler definition was not added in CMakeLists.txt : add_definitions(-DCLASS_MALLOC=xxx_malloc)
+#endif // !CLASS_MALLOC
+
+#ifndef CLASS_FREE
+#define CLASS_FREE free
+#warning The compiler definition was not added in CMakeLists.txt : add_definitions(-DCLASS_FREE=xxx_free)
+#endif // !CLASS_FREE
 
 typedef struct {
     unsigned char* name;
@@ -20,3 +32,5 @@ typedef struct {
 
 ANIMAL* ANIMAL_CTOR(void);
 void ANIMAL_DTOR(ANIMAL* t);
+
+#endif // !__ANIMAL_H
