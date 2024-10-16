@@ -2,15 +2,21 @@
 #ifndef __ANIMAL_H
 #define __ANIMAL_H
 
-#ifndef CLASS_MALLOC
-#define CLASS_MALLOC malloc
-#warning The compiler definition was not added in CMakeLists.txt : add_definitions(-DCLASS_MALLOC=xxx_malloc)
-#endif // !CLASS_MALLOC
-
-#ifndef CLASS_FREE
-#define CLASS_FREE free
-#warning The compiler definition was not added in CMakeLists.txt : add_definitions(-DCLASS_FREE=xxx_free)
-#endif // !CLASS_FREE
+#ifndef ENABLE_MACRO_ISOLATION
+#warning The compiler definition was not added in CMakeLists.txt : ENABLE_MACRO_ISOLATION
+// #ifndef CLASS_LOG
+// #define CLASS_LOG printf
+// #endif // !CLASS_LOG
+// #ifndef CLASS_MALLOC
+// #define CLASS_MALLOC malloc
+// #endif // !CLASS_MALLOC
+// #ifndef CLASS_FREE
+// #define CLASS_FREE free
+// #endif // !CLASS_FREE
+#include "macro_isolation.h"
+#else
+#include "../project/macro_isolation.h"
+#endif // !ENABLE_MACRO_ISOLATION
 
 typedef struct {
     unsigned char* name;
