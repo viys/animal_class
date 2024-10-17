@@ -3,16 +3,7 @@
 #define __ANIMAL_H
 
 #ifndef ENABLE_MACRO_ISOLATION
-#warning The compiler definition was not added in CMakeLists.txt : ENABLE_MACRO_ISOLATION
-// #ifndef CLASS_LOG
-// #define CLASS_LOG printf
-// #endif // !CLASS_LOG
-// #ifndef CLASS_MALLOC
-// #define CLASS_MALLOC malloc
-// #endif // !CLASS_MALLOC
-// #ifndef CLASS_FREE
-// #define CLASS_FREE free
-// #endif // !CLASS_FREE
+// #warning The compiler definition was not added in CMakeLists.txt : ENABLE_MACRO_ISOLATION
 #include "macro_isolation.h"
 #else
 #include "../project/macro_isolation.h"

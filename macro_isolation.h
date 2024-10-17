@@ -10,3 +10,7 @@
 #ifndef CLASS_LOG
 #define CLASS_LOG printf
 #endif // !CLASS_LOG
+
+#ifndef CLASS_mDelay
+#define CLASS_mDelay(ms) usleep(ms*1000)
+#endif // !CLASS_mDelay
