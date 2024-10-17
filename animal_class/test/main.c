@@ -19,7 +19,7 @@ int main(void)
     Cat->init(Cat, &attr1);
     cat = (ANIMAL_IMPLEMENTS*)Cat;
 
-    printf("Cat\n")
+    printf("Cat\n");
     cat->get_name(cat);
     cat->get_age(cat);
     cat->show_sound(cat);
@@ -34,7 +34,7 @@ int main(void)
     Mouse->init(Mouse, &attr2);
     mouse = (ANIMAL_IMPLEMENTS*)Mouse;
 
-    printf("Mouse\n")
+    printf("Mouse\n");
     mouse->get_name(mouse);
     mouse->get_age(mouse);
     mouse->show_sound(mouse);
