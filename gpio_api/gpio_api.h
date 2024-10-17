@@ -15,22 +15,22 @@ typedef enum {
 }GPIO_Mode;
 
 typedef enum {
-    GPIO_ID_0 = 0,
-    GPIO_ID_1 = 1,
-    GPIO_ID_2 = 2,
-    GPIO_ID_3 = 3,
-    GPIO_ID_4 = 4,
-    GPIO_ID_5 = 5,
-    GPIO_ID_6 = 6,
-    GPIO_ID_7 = 7,
-    GPIO_ID_8 = 8,
-    GPIO_ID_9 = 9,
-    GPIO_ID_10 = 10,
-    GPIO_ID_11 = 11,
-    GPIO_ID_12 = 12,
-    GPIO_ID_13 = 13,
-    GPIO_ID_14 = 14,
-    GPIO_ID_15 = 15,
+    GPIO_ID_0 = 0x0001,
+    GPIO_ID_1 = 0x0002,
+    GPIO_ID_2 = 0x0004,
+    GPIO_ID_3 = 0x0008,
+    GPIO_ID_4 = 0x0010,
+    GPIO_ID_5 = 0x0020,
+    GPIO_ID_6 = 0x0040,
+    GPIO_ID_7 = 0x0080,
+    GPIO_ID_8 = 0x0100,
+    GPIO_ID_9 = 0x0200,
+    GPIO_ID_10 =0x0400,
+    GPIO_ID_11 =0x0800,
+    GPIO_ID_12 =0x1000,
+    GPIO_ID_13 =0x2000,
+    GPIO_ID_14 =0x4000,
+    GPIO_ID_15 =0x8000,
 }GPIO_ID;
 
 typedef enum {
@@ -42,9 +42,11 @@ typedef enum {
 typedef struct {
     GPIO_Mode mode : 8;
     GPIO_Level level : 16;
-    void (*callback)(void* param);
+    void* bind;
+    void (*callback)(void* bind);
 }GPIO_Attr;
 
 int gpio_init(GPIO_ID id, GPIO_Attr attr);
 int gpio_get_level(GPIO_ID id, GPIO_Level* level);
 int gpio_set_level(GPIO_ID id, GPIO_Level level);
+void gpio_set_int(GPIO_ID id);
